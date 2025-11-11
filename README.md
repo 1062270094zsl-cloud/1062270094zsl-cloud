@@ -214,29 +214,22 @@ Sep. 2019 - Jul. 2022
 
 ---
 
-## Technical Skills
+## Skills & Languages
 
-<div style="background-color: #ffffff; padding: 15px; border-radius: 5px;">
+<div style="background-color: #ffffff; padding: 20px; border-radius: 5px;">
 
-**AI/Computer Vision:** PyTorch, TensorFlow, OpenCV, SLAM, Vision Models (Proficient)
+**Technical Expertise**
 
-**Programming:** Python, C++, ROS2, Linux, Java (Proficient)
+- **AI/Computer Vision:** PyTorch, TensorFlow, OpenCV, SLAM, Vision Models (Proficient)
+- **Programming:** Python, C++, ROS2, Linux, Java (Proficient)
+- **Robotics:** SLAM, Robotic Arm Control Theory, Robot Learning (Reinforcement Learning Model Deployment, Trajectory Strategy Learning) (Expert)
+- **Machine Learning:** Reinforcement Learning, Deep Learning, Neural Networks, Machine Learning Statistics (Proficient)
+- **Engineering:** Mechanical Design, CAD (SolidWorks), 3D Printing, Finite Element Analysis (Proficient)
+- **Systems/Tools:** Linux, BIM & GIS, VR/3D/4D Gaussian Splatting, Transformer, LLM
 
-**Robotics:** SLAM, Robotic Arm Control Theory, Robot Learning (Reinforcement Learning Model Deployment, Trajectory Strategy Learning) (Expert)
+**Language Proficiency**
 
-**Machine Learning:** Reinforcement Learning, Deep Learning, Neural Networks, Machine Learning Statistics (Proficient)
-
-**Engineering:** Mechanical Design, CAD (SolidWorks), 3D Printing, Finite Element Analysis (Proficient)
-
-**Systems/Tools:** Linux, BIM & GIS, VR/3D/4D Gaussian Splatting, Transformer, LLM
-
-</div>
-
----
-
-## Language Skills
-
-<table style="width: 100%; border-collapse: collapse; background-color: #ffffff;">
+<table style="width: 100%; border-collapse: collapse; background-color: #ffffff; margin-top: 15px;">
 <tr style="background-color: #f8f9fa;">
 <th style="border: 1px solid #e9ecef; padding: 10px; text-align: left;">Language</th>
 <th style="border: 1px solid #e9ecef; padding: 10px; text-align: left;">Proficiency</th>
@@ -263,6 +256,8 @@ Sep. 2019 - Jul. 2022
 <td style="border: 1px solid #e9ecef; padding: 10px;">Basic communication</td>
 </tr>
 </table>
+
+</div>
 
 ---
 
