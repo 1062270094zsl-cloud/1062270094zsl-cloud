@@ -1,4 +1,4 @@
-<div align="center">
+<div align="center" style="background-color: #ffffff; padding: 20px; border-radius: 10px;">
 
 # 张师澧 (Shili Zhang)
 
@@ -16,9 +16,9 @@
 
 </div>
 
-<table>
+<table style="background-color: #ffffff; width: 100%;">
 <tr>
-<td width="60%" valign="top">
+<td width="60%" valign="top" style="padding: 15px; background-color: #ffffff;">
 
 ## About
 
@@ -53,7 +53,7 @@ My research interests focus on **perception fusion and environmental interaction
 - Assistive Technology
 
 </td>
-<td width="40%" valign="top">
+<td width="40%" valign="top" style="padding: 15px; background-color: #f8f9fa; border-left: 2px solid #e9ecef;">
 
 ## Education
 
@@ -90,6 +90,8 @@ Sep. 2019 - Jul. 2022
 
 ## Experiences
 
+<div style="background-color: #ffffff; padding: 15px; margin: 10px 0; border-left: 4px solid #2563eb; border-radius: 5px;">
+
 ### Research Intern | Engineer Assistant
 **Ningbo Digital Twin Research Institute (东方理工)** | Feb. 2022 - Jan. 2025 | Ningbo, China
 
@@ -104,7 +106,9 @@ Sep. 2019 - Jul. 2022
 
 **Technologies:** Jetson, YOLO, ROS2, SLAM, BIM & GIS, 4D Gaussian Splatting, Vision Pro VR
 
----
+</div>
+
+<div style="background-color: #ffffff; padding: 15px; margin: 10px 0; border-left: 4px solid #2563eb; border-radius: 5px;">
 
 ### Laboratory Intern | Test Engineer Assistant
 **BorgWarner China Technical Center** | Feb. 2022 - Aug. 2022 | Shanghai, China
@@ -114,9 +118,13 @@ Sep. 2019 - Jul. 2022
 - **Reduced experimental error rate by ~12%**, improved detection efficiency by **15%**
 - Developed rigorous engineering experimental and quality control thinking
 
+</div>
+
 ---
 
 ## Projects
+
+<div style="background-color: #f8f9fa; padding: 20px; margin: 15px 0; border-radius: 8px; border: 1px solid #e9ecef;">
 
 ### ROS2 Maze Navigation and Search-Rescue Task
 **Apr. 2025 - Jul. 2025** | **Project Lead** | A* Path Planning | SLAM | LiDAR+Camera Fusion | ROS2 | OpenCV
@@ -133,7 +141,9 @@ Sep. 2019 - Jul. 2022
 
 [![View Project](https://img.shields.io/badge/View_Project-GitHub-181717?style=flat-square&logo=github)](https://github.com/1062270094zsl-cloud/ros2-maze-navigation-searchforce)
 
----
+</div>
+
+<div style="background-color: #f8f9fa; padding: 20px; margin: 15px 0; border-radius: 8px; border: 1px solid #e9ecef;">
 
 ### Transformer Few-Shot Semantic Segmentation
 **Oct. 2024 - Apr. 2025** | **Project Lead** | ViT Backbone Comparison | Self/Weak/Fully Supervised | +9.4% Performance
@@ -148,7 +158,9 @@ Sep. 2019 - Jul. 2022
 
 [![View Project](https://img.shields.io/badge/View_Project-GitHub-181717?style=flat-square&logo=github)](https://github.com/1062270094zsl-cloud/few-shot-learning-cst)
 
----
+</div>
+
+<div style="background-color: #f8f9fa; padding: 20px; margin: 15px 0; border-radius: 8px; border: 1px solid #e9ecef;">
 
 ### Robotic Arm Perception and Control Simulation
 **Nov. 2024 - Feb. 2025** | **Project Lead** | Visual Servoing | Gazebo Trajectory Optimization | ROS2 | MoveIt! | Python
@@ -164,7 +176,9 @@ Sep. 2019 - Jul. 2022
 
 **Results:** Achieved **100% grasping success rate** in simulation, improved obstacle avoidance efficiency by **20%+**
 
----
+</div>
+
+<div style="background-color: #f8f9fa; padding: 20px; margin: 15px 0; border-radius: 8px; border: 1px solid #e9ecef;">
 
 ### Intelligent Crack Detection Robot
 **Feb. 2022 - Jan. 2025** | **Project Lead** | Jetson | YOLO | ROS2 | SLAM | BIM & GIS
@@ -178,7 +192,9 @@ Sep. 2019 - Jul. 2022
 
 [![View Project](https://img.shields.io/badge/View_Project-GitHub-181717?style=flat-square&logo=github)](https://github.com/1062270094zsl-cloud/crack-detection-robot)
 
----
+</div>
+
+<div style="background-color: #f8f9fa; padding: 20px; margin: 15px 0; border-radius: 8px; border: 1px solid #e9ecef;">
 
 ### Vacuum Cleaning Robot Development
 **Mar. 2023 - Aug. 2023** | **Project Lead** | Mechanical Design | 3D Printing | Microcontroller Programming
@@ -194,9 +210,13 @@ Sep. 2019 - Jul. 2022
 
 [![View Project](https://img.shields.io/badge/View_Project-GitHub-181717?style=flat-square&logo=github)](https://github.com/1062270094zsl-cloud/vacuum-cleaning-robot)
 
+</div>
+
 ---
 
 ## Technical Skills
+
+<div style="background-color: #ffffff; padding: 15px; border-radius: 5px;">
 
 **AI/Computer Vision:** PyTorch, TensorFlow, OpenCV, SLAM, Vision Models (Proficient)
 
@@ -210,32 +230,55 @@ Sep. 2019 - Jul. 2022
 
 **Systems/Tools:** Linux, BIM & GIS, VR/3D/4D Gaussian Splatting, Transformer, LLM
 
+</div>
+
 ---
 
 ## Language Skills
 
-| Language | Proficiency | Notes |
-|----------|------------|-------|
-| Chinese | Native | Daily and professional communication |
-| English | Fluent | Reading academic papers, writing reports, work communication |
-| German | TestDaF 16 | Academic and daily life communication |
-| Japanese | Basic | Basic communication |
+<table style="width: 100%; border-collapse: collapse; background-color: #ffffff;">
+<tr style="background-color: #f8f9fa;">
+<th style="border: 1px solid #e9ecef; padding: 10px; text-align: left;">Language</th>
+<th style="border: 1px solid #e9ecef; padding: 10px; text-align: left;">Proficiency</th>
+<th style="border: 1px solid #e9ecef; padding: 10px; text-align: left;">Notes</th>
+</tr>
+<tr>
+<td style="border: 1px solid #e9ecef; padding: 10px;">Chinese</td>
+<td style="border: 1px solid #e9ecef; padding: 10px;">Native</td>
+<td style="border: 1px solid #e9ecef; padding: 10px;">Daily and professional communication</td>
+</tr>
+<tr style="background-color: #f8f9fa;">
+<td style="border: 1px solid #e9ecef; padding: 10px;">English</td>
+<td style="border: 1px solid #e9ecef; padding: 10px;">Fluent</td>
+<td style="border: 1px solid #e9ecef; padding: 10px;">Reading academic papers, writing reports, work communication</td>
+</tr>
+<tr>
+<td style="border: 1px solid #e9ecef; padding: 10px;">German</td>
+<td style="border: 1px solid #e9ecef; padding: 10px;">TestDaF 16</td>
+<td style="border: 1px solid #e9ecef; padding: 10px;">Academic and daily life communication</td>
+</tr>
+<tr style="background-color: #f8f9fa;">
+<td style="border: 1px solid #e9ecef; padding: 10px;">Japanese</td>
+<td style="border: 1px solid #e9ecef; padding: 10px;">Basic</td>
+<td style="border: 1px solid #e9ecef; padding: 10px;">Basic communication</td>
+</tr>
+</table>
 
 ---
 
 ## GitHub Statistics
 
-<div align="center">
+<div align="center" style="background-color: #ffffff; padding: 20px; border-radius: 8px;">
 
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=1062270094zsl-cloud&show_icons=true&theme=radical&hide_border=true&bg_color=0D1117&title_color=00D9FF&icon_color=00D9FF&text_color=ffffff)
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=1062270094zsl-cloud&show_icons=true&theme=default&hide_border=true&bg_color=ffffff&title_color=2563eb&icon_color=2563eb&text_color=1f2937&border_color=e5e7eb)
 
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=1062270094zsl-cloud&layout=compact&theme=radical&hide_border=true&bg_color=0D1117&title_color=00D9FF)
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=1062270094zsl-cloud&layout=compact&theme=default&hide_border=true&bg_color=ffffff&title_color=2563eb&text_color=1f2937&border_color=e5e7eb)
 
 </div>
 
 ---
 
-<div align="center">
+<div align="center" style="background-color: #ffffff; padding: 15px;">
 
 **Last Updated:** January 2025
 
