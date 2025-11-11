@@ -1,11 +1,24 @@
 <div align="center">
 
+<table>
+<tr>
+<td width="70%" valign="top">
+
 # 张师澧 (Shili Zhang)
 
 **Robotics & AI Engineer | Master's Student**  
 **Technische Universität Darmstadt | Department of Computer Science**
 
 📧 1062270094@qq.com | 📱 13541154240 | 📍 Darmstadt, Germany
+
+</td>
+<td width="30%" valign="top" align="center">
+
+<img src="assets/profile.jpg" alt="Shili Zhang" width="200" style="border-radius: 50%; border: 3px solid #00D9FF; box-shadow: 0 0 20px rgba(0, 217, 255, 0.5);">
+
+</td>
+</tr>
+</table>
 
 [![Google Scholar](https://img.shields.io/badge/Google_Scholar-4285F4?style=flat-square&logo=google-scholar&logoColor=white)](https://scholar.google.com/)
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/1062270094zsl-cloud)
