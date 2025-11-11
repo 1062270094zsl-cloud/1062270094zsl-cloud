@@ -9,16 +9,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --accent: #00D9FF;
-            --accent-dark: #00B8D4;
-            --bg-gradient: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0a0e27 100%);
-            --bg-gradient-hero: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
-            --text-primary: #f4f4f4;
-            --text-secondary: #b8b8b8;
-            --light-bg: rgba(255, 255, 255, 0.05);
-            --border-color: rgba(0, 217, 255, 0.2);
-            --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-            --shadow-glow: 0 0 30px rgba(0, 217, 255, 0.3);
+            --accent: #2563eb;
+            --accent-dark: #1d4ed8;
+            --bg-gradient: #ffffff;
+            --bg-gradient-hero: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --light-bg: #f8f9fa;
+            --border-color: #e9ecef;
+            --shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            --shadow-glow: 0 0 20px rgba(37, 99, 235, 0.2);
         }
 
         * {
@@ -41,11 +41,12 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(10, 14, 39, 0.8);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border-color);
             z-index: 1000;
             padding: 1rem 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         }
 
         nav {
@@ -136,10 +137,7 @@
             font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 700;
             margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--accent), #ffffff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--text-primary);
         }
 
         .hero .subtitle {
@@ -186,11 +184,12 @@
 
         .btn-primary {
             background: var(--accent);
-            color: #0a0e27;
+            color: #ffffff;
         }
 
         .btn-primary:hover {
             background: var(--accent-dark);
+            color: #ffffff;
         }
 
         /* Main Content */
@@ -268,7 +267,7 @@
             padding: 2rem;
             border-radius: 15px;
             border: 1px solid var(--border-color);
-            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow);
         }
 
         .section-card h3 {
@@ -290,11 +289,12 @@
         }
 
         .skill-item {
-            background: rgba(0, 217, 255, 0.1);
+            background: rgba(37, 99, 235, 0.1);
             padding: 0.75rem 1rem;
             border-radius: 8px;
             border-left: 3px solid var(--accent);
             font-size: 0.9rem;
+            color: var(--text-primary);
         }
 
         /* Projects Section */
@@ -337,7 +337,7 @@
         }
 
         .tag {
-            background: rgba(0, 217, 255, 0.2);
+            background: rgba(37, 99, 235, 0.15);
             color: var(--accent);
             padding: 0.25rem 0.75rem;
             border-radius: 20px;
@@ -421,7 +421,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(0, 217, 255, 0.1);
+            background: rgba(37, 99, 235, 0.1);
             border-radius: 50%;
             color: var(--accent);
             transition: all 0.3s;
@@ -429,7 +429,7 @@
 
         .social-links a:hover {
             background: var(--accent);
-            color: #0a0e27;
+            color: #ffffff;
             transform: translateY(-3px);
         }
 
@@ -636,8 +636,8 @@
             </div>
 
             <div class="stats-container">
-                <img src="https://github-readme-stats.vercel.app/api?username=1062270094zsl-cloud&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=00D9FF&icon_color=00D9FF&text_color=ffffff&include_all_commits=true&count_private=true" alt="GitHub Stats">
-                <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=1062270094zsl-cloud&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=00D9FF&text_color=ffffff" alt="Top Languages">
+                <img src="https://github-readme-stats.vercel.app/api?username=1062270094zsl-cloud&show_icons=true&theme=default&hide_border=true&bg_color=ffffff&title_color=2563eb&icon_color=2563eb&text_color=1f2937&include_all_commits=true&count_private=true" alt="GitHub Stats">
+                <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=1062270094zsl-cloud&layout=compact&theme=default&hide_border=true&bg_color=ffffff&title_color=2563eb&text_color=1f2937" alt="Top Languages">
             </div>
         </div>
 
