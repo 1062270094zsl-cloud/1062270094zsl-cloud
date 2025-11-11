@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shili Zhang - Robotics & AI Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --accent: #00D9FF;
+            --accent-dark: #00B8D4;
+            --bg-gradient: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0a0e27 100%);
+            --bg-gradient-hero: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+            --text-primary: #f4f4f4;
+            --text-secondary: #b8b8b8;
+            --light-bg: rgba(255, 255, 255, 0.05);
+            --border-color: rgba(0, 217, 255, 0.2);
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --shadow-glow: 0 0 30px rgba(0, 217, 255, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 14, 39, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            padding: 1rem 2rem;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--accent);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--accent);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--bg-gradient-hero);
+            opacity: 0.5;
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 1;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .profile-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 4px solid var(--accent);
+            box-shadow: var(--shadow-glow);
+            margin-bottom: 2rem;
+            object-fit: cover;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--accent), #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .subtitle {
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .hero .description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.875rem 2rem;
+            border: 2px solid var(--accent);
+            background: transparent;
+            color: var(--accent);
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background: var(--accent);
+            color: #0a0e27;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #0a0e27;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-dark);
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            border-bottom: 2px solid var(--border-color);
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 1rem 2rem;
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            position: relative;
+            transition: color 0.3s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .tab-btn::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s;
+        }
+
+        .tab-btn:hover {
+            color: var(--accent);
+        }
+
+        .tab-btn.active {
+            color: var(--accent);
+        }
+
+        .tab-btn.active::after {
+            width: 100%;
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .section-card {
+            background: var(--light-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(10px);
+        }
+
+        .section-card h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .section-card p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .skill-item {
+            background: rgba(0, 217, 255, 0.1);
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--accent);
+            font-size: 0.9rem;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--light-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .project-card h3 {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .project-meta {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .tag {
+            background: rgba(0, 217, 255, 0.2);
+            color: var(--accent);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        .project-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Publications Section */
+        .publication-item {
+            background: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .publication-item h3 {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-meta {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .contact-card {
+            background: var(--light-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .contact-card h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .contact-card a {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-card a:hover {
+            color: var(--accent);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 217, 255, 0.1);
+            border-radius: 50%;
+            color: var(--accent);
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+            color: #0a0e27;
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border-color);
+            margin-top: 4rem;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero {
+                padding: 6rem 1rem 3rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tabs {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .tab-btn {
+                padding: 0.75rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .main-content {
+                padding: 2rem 1rem;
+            }
+        }
+
+        /* GitHub Stats */
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .stats-container img {
+            width: 100%;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">SZ</div>
+            <ul class="nav-links">
+                <li><a href="#about" onclick="switchTab('about')">About</a></li>
+                <li><a href="#projects" onclick="switchTab('projects')">Projects</a></li>
+                <li><a href="#publications" onclick="switchTab('publications')">Publications</a></li>
+                <li><a href="#contact" onclick="switchTab('contact')">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn">☰</button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <img src="https://raw.githubusercontent.com/1062270094zsl-cloud/1062270094zsl-cloud/main/assets/profile.jpg" alt="Shili Zhang" class="profile-image">
+            <h1>Shili Zhang</h1>
+            <p class="subtitle">Robotics & AI Engineer</p>
+            <p class="description">
+                Master's Student at Technische Universität Darmstadt<br>
+                Specializing in Autonomous Systems, SLAM, Computer Vision & Transformer Methods
+            </p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary" onclick="switchTab('contact')">Get In Touch</a>
+                <a href="#projects" class="btn" onclick="switchTab('projects')">View Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Tabs -->
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab('about')">About Me</button>
+            <button class="tab-btn" onclick="switchTab('projects')">Projects</button>
+            <button class="tab-btn" onclick="switchTab('publications')">Publications</button>
+            <button class="tab-btn" onclick="switchTab('contact')">Contact</button>
+        </div>
+
+        <!-- Tab Contents -->
+        <!-- About Tab -->
+        <div id="about" class="tab-content active">
+            <div class="about-grid">
+                <div class="section-card">
+                    <h3>👨‍💻 About Me</h3>
+                    <p>
+                        I am a <strong>Master's student in Autonomous Systems and Robotics</strong> at 
+                        <a href="https://www.tu-darmstadt.de/" target="_blank" style="color: var(--accent);">Technische Universität Darmstadt</a>, 
+                        focusing on <strong>intelligent robotics systems, SLAM, computer vision, and Transformer methods</strong> 
+                        for scene understanding and task planning.
+                    </p>
+                    <p style="margin-top: 1rem;">
+                        I specialize in building <strong>end-to-end robotics systems</strong> that seamlessly integrate 
+                        perception, planning, and control. With extensive experience in deploying ML models on edge devices 
+                        and integrating complex robotic systems, I've successfully completed projects ranging from 
+                        autonomous navigation to intelligent crack detection.
+                    </p>
+                </div>
+                <div class="section-card">
+                    <h3>🌍 Languages</h3>
+                    <p>🇨🇳 Chinese (Native) | 🇬🇧 English (Fluent) | 🇩🇪 German (TestDaF 16) | 🇯🇵 Japanese (Basic)</p>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <h3>🛠️ Technical Skills</h3>
+                <div class="skills-grid">
+                    <div class="skill-item"><strong>AI & Computer Vision:</strong> PyTorch, TensorFlow, OpenCV, SLAM</div>
+                    <div class="skill-item"><strong>Programming:</strong> Python, C++, ROS2, Linux, Java</div>
+                    <div class="skill-item"><strong>Robotics:</strong> SLAM, Robotic Arm Control, Robot Learning</div>
+                    <div class="skill-item"><strong>Machine Learning:</strong> Reinforcement Learning, Deep Learning, Neural Networks</div>
+                    <div class="skill-item"><strong>Engineering:</strong> SolidWorks, 3D Printing, Finite Element Analysis</div>
+                    <div class="skill-item"><strong>Systems:</strong> BIM & GIS, VR/3D/4D Gaussian Splatting, Transformer, LLM</div>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <h3>🎓 Education</h3>
+                <div style="margin-bottom: 1.5rem;">
+                    <h4 style="color: var(--accent); margin-bottom: 0.5rem;">🏛️ Technische Universität Darmstadt</h4>
+                    <p><strong>M.Sc. Autonomous Systems and Robotics</strong> | Sep. 2023 - Present</p>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">
+                        Core Courses: Machine Learning, Deep Learning, Reinforcement Learning, Robotics Learning, 
+                        Computer Vision, Software Engineering, Natural Language Processing
+                    </p>
+                </div>
+                <div style="margin-bottom: 1.5rem;">
+                    <h4 style="color: var(--accent); margin-bottom: 0.5rem;">🎓 Hochschule Furtwangen University</h4>
+                    <p><strong>B.Sc. Mechanical Engineering</strong> | Sep. 2022 - Aug. 2023</p>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">GPA: 1.9 (German scale, ≈3.33 international, Top 5-20%)</p>
+                </div>
+                <div>
+                    <h4 style="color: var(--accent); margin-bottom: 0.5rem;">🎓 University of Shanghai for Science and Technology</h4>
+                    <p><strong>B.Eng. Mechanical Design & Automation</strong> | Sep. 2019 - Jul. 2022</p>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">🏆 Outstanding Graduate, Second-class Scholarship</p>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <h3>💼 Work Experience</h3>
+                <div style="margin-bottom: 1.5rem;">
+                    <h4 style="color: var(--accent); margin-bottom: 0.5rem;">🔬 Research Intern | Engineer Assistant</h4>
+                    <p><strong>Ningbo Digital Twin Research Institute (东方理工)</strong> | Feb. 2022 - Jan. 2025 | Ningbo, China</p>
+                    <ul style="margin-top: 0.5rem; padding-left: 1.5rem; color: var(--text-secondary);">
+                        <li>Deployed <strong>YOLO</strong> network on <strong>Jetson</strong> edge computing platform, achieving <strong>92%+ accuracy</strong></li>
+                        <li>Integrated <strong>BIM & GIS</strong> modules for spatial localization and map visualization</li>
+                        <li>Implemented <strong>ROS2 + SLAM</strong> for environment mapping and path planning</li>
+                        <li>Created <strong>VR/3D & 4D Gaussian Splatting</strong> scene reconstruction, improving navigation accuracy by <strong>22%</strong></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color: var(--accent); margin-bottom: 0.5rem;">🧪 Laboratory Intern | Test Engineer Assistant</h4>
+                    <p><strong>BorgWarner China Technical Center</strong> | Feb. 2022 - Aug. 2022 | Shanghai, China</p>
+                    <ul style="margin-top: 0.5rem; padding-left: 1.5rem; color: var(--text-secondary);">
+                        <li>Reduced experimental error rate by <strong>~12%</strong></li>
+                        <li>Improved detection efficiency by <strong>15%</strong></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="stats-container">
+                <img src="https://github-readme-stats.vercel.app/api?username=1062270094zsl-cloud&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=00D9FF&icon_color=00D9FF&text_color=ffffff&include_all_commits=true&count_private=true" alt="GitHub Stats">
+                <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=1062270094zsl-cloud&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=00D9FF&text_color=ffffff" alt="Top Languages">
+            </div>
+        </div>
+
+        <!-- Projects Tab -->
+        <div id="projects" class="tab-content">
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>🤖 ROS2 Maze Navigation</h3>
+                    <p class="project-meta">Apr. 2025 - Jul. 2025 | Project Lead</p>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                        Developed autonomous maze navigation system based on ROS2 Navigation framework, 
+                        achieving real-time mapping, path planning, and target localization.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">A* Path Planning</span>
+                        <span class="tag">SLAM</span>
+                        <span class="tag">LiDAR+Camera</span>
+                        <span class="tag">ROS2</span>
+                        <span class="tag">OpenCV</span>
+                    </div>
+                    <p style="color: var(--accent); font-weight: 600; margin-top: 1rem;">
+                        🎯 Results: 95%+ navigation success rate
+                    </p>
+                    <a href="https://github.com/1062270094zsl-cloud/ros2-maze-navigation-searchforce" target="_blank" class="project-link">
+                        View Project →
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <h3>🧠 Transformer Few-Shot Segmentation</h3>
+                    <p class="project-meta">Oct. 2024 - Apr. 2025 | Project Lead</p>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                        Evaluated the impact of different supervision levels of Transformer backbones 
+                        on few-shot image classification and segmentation tasks.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">ViT Backbone</span>
+                        <span class="tag">Self-Supervised</span>
+                        <span class="tag">Weakly-Supervised</span>
+                        <span class="tag">CST Transformer</span>
+                    </div>
+                    <p style="color: var(--accent); font-weight: 600; margin-top: 1rem;">
+                        📈 Results: +9.4% performance improvement
+                    </p>
+                    <a href="https://github.com/1062270094zsl-cloud/few-shot-learning-cst" target="_blank" class="project-link">
+                        View Project →
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <h3>🦾 Robotic Arm Control</h3>
+                    <p class="project-meta">Nov. 2024 - Feb. 2025 | Project Lead</p>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                        Completed robotic arm grasping, obstacle avoidance, and path planning tasks 
+                        in Pybullet simulation environment.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Visual Servoing</span>
+                        <span class="tag">Gazebo</span>
+                        <span class="tag">ROS2</span>
+                        <span class="tag">MoveIt!</span>
+                        <span class="tag">Python</span>
+                    </div>
+                    <p style="color: var(--accent); font-weight: 600; margin-top: 1rem;">
+                        🎯 Results: 100% grasping success rate | ⚡ +20% efficiency
+                    </p>
+                </div>
+
+                <div class="project-card">
+                    <h3>🔍 Crack Detection Robot</h3>
+                    <p class="project-meta">Feb. 2022 - Jan. 2025 | Project Lead</p>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                        Developed intelligent inspection robot system for building infrastructure 
+                        crack detection and visualization.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Jetson</span>
+                        <span class="tag">YOLO</span>
+                        <span class="tag">ROS2</span>
+                        <span class="tag">SLAM</span>
+                        <span class="tag">BIM & GIS</span>
+                    </div>
+                    <p style="color: var(--accent); font-weight: 600; margin-top: 1rem;">
+                        🎯 Results: 92%+ detection accuracy
+                    </p>
+                    <a href="https://github.com/1062270094zsl-cloud/crack-detection-robot" target="_blank" class="project-link">
+                        View Project →
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <h3>🧹 Vacuum Cleaning Robot</h3>
+                    <p class="project-meta">Mar. 2023 - Aug. 2023 | Project Lead</p>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                        Researched vacuum cleaner history, analyzed commercial models, and independently 
+                        designed a vacuum cleaning robot.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Mechanical Design</span>
+                        <span class="tag">3D Printing</span>
+                        <span class="tag">Microcontroller</span>
+                        <span class="tag">Obstacle Avoidance</span>
+                    </div>
+                    <p style="color: var(--accent); font-weight: 600; margin-top: 1rem;">
+                        🎯 Results: 90%+ coverage rate
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Publications Tab -->
+        <div id="publications" class="tab-content">
+            <div class="section-card">
+                <h3>📚 Research Interests</h3>
+                <div style="margin-top: 1.5rem;">
+                    <h4 style="color: var(--accent); margin-bottom: 0.5rem;">🤖 Embodied AI & Robotics</h4>
+                    <ul style="color: var(--text-secondary); padding-left: 1.5rem; margin-bottom: 1.5rem;">
+                        <li>Autonomous Navigation - Real-time mapping and navigation systems</li>
+                        <li>SLAM & Path Planning - Environment mapping and exploration</li>
+                        <li>Robot Manipulation & Control - Precise motion control</li>
+                        <li>Human-Robot Interaction - Collaborative robotics</li>
+                    </ul>
+
+                    <h4 style="color: var(--accent); margin-bottom: 0.5rem;">🧠 Computer Vision & Machine Learning</h4>
+                    <ul style="color: var(--text-secondary); padding-left: 1.5rem; margin-bottom: 1.5rem;">
+                        <li>Few-Shot Learning - Advanced visual understanding with limited data</li>
+                        <li>Vision Transformers - Transformer-based vision models</li>
+                        <li>Object Detection & Segmentation - Real-time target recognition</li>
+                        <li>Deep Reinforcement Learning - Intelligent decision making</li>
+                    </ul>
+
+                    <h4 style="color: var(--accent); margin-bottom: 0.5rem;">🔬 Applications</h4>
+                    <ul style="color: var(--text-secondary); padding-left: 1.5rem;">
+                        <li>Wearable Robotics - Human augmentation systems</li>
+                        <li>Rehabilitation Robots - Medical assistance</li>
+                        <li>Therapeutic Robots - Healthcare support</li>
+                        <li>Assistive Technology - Accessibility solutions</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <h3>🎯 Current Research Focus</h3>
+                <p style="color: var(--text-secondary); line-height: 1.8;">
+                    My research interests focus on <strong>perception fusion and environmental interaction 
+                    in intelligent robotics systems</strong>, particularly applying <strong>SLAM, visual servoing, 
+                    and Transformer</strong> methods to scene understanding, action recognition, and task planning.
+                </p>
+                <p style="color: var(--text-secondary); line-height: 1.8; margin-top: 1rem;">
+                    I am looking forward to working in the fields of <strong>wearable robotics, rehabilitation, 
+                    and therapeutic robots</strong>.
+                </p>
+            </div>
+        </div>
+
+        <!-- Contact Tab -->
+        <div id="contact" class="tab-content">
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h3>📧 Email</h3>
+                    <p><a href="mailto:1062270094@qq.com">1062270094@qq.com</a></p>
+                </div>
+                <div class="contact-card">
+                    <h3>📱 Phone</h3>
+                    <p>+86 13541154240</p>
+                </div>
+                <div class="contact-card">
+                    <h3>📍 Location</h3>
+                    <p>Darmstadt, Germany</p>
+                </div>
+                <div class="contact-card">
+                    <h3>🔗 Social Links</h3>
+                    <div class="social-links">
+                        <a href="https://github.com/1062270094zsl-cloud" target="_blank" title="GitHub">🔗</a>
+                        <a href="https://scholar.google.com/" target="_blank" title="Google Scholar">📚</a>
+                        <a href="https://linkedin.com/" target="_blank" title="LinkedIn">💼</a>
+                        <a href="mailto:1062270094@qq.com" title="Email">✉️</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-card" style="margin-top: 2rem; text-align: center;">
+                <h3>💬 Let's Connect!</h3>
+                <p style="color: var(--text-secondary); margin-top: 1rem;">
+                    I'm always open to discussing robotics, AI, and potential collaborations. 
+                    Feel free to reach out!
+                </p>
+                <div style="margin-top: 2rem;">
+                    <a href="mailto:1062270094@qq.com" class="btn btn-primary">Send Email</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Shili Zhang. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Last Updated: January 2025</p>
+    </footer>
+
+    <script>
+        // Tab Switching Function
+        function switchTab(tabName) {
+            // Hide all tab contents
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Remove active class from all tab buttons
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // Show selected tab content
+            document.getElementById(tabName).classList.add('active');
+
+            // Add active class to clicked button
+            event.target.classList.add('active');
+
+            // Update URL hash
+            window.location.hash = tabName;
+
+            // Scroll to top of content
+            document.querySelector('.main-content').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        // Handle hash on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            const hash = window.location.hash.substring(1);
+            if (hash && ['about', 'projects', 'publications', 'contact'].includes(hash)) {
+                const contents = document.querySelectorAll('.tab-content');
+                contents.forEach(content => {
+                    content.classList.remove('active');
+                });
+                const buttons = document.querySelectorAll('.tab-btn');
+                buttons.forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                document.getElementById(hash).classList.add('active');
+                buttons[['about', 'projects', 'publications', 'contact'].indexOf(hash)].classList.add('active');
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Mobile menu toggle (if needed)
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            });
+        }
+    </script>
+</body>
+</html>
+
