@@ -14,7 +14,7 @@
 </td>
 <td width="30%" valign="top" align="center">
 
-<img src="assets/profile.jpg" alt="Shili Zhang" width="200" style="border-radius: 50%; border: 3px solid #00D9FF; box-shadow: 0 0 20px rgba(0, 217, 255, 0.5);">
+<img src="https://raw.githubusercontent.com/1062270094zsl-cloud/1062270094zsl-cloud/main/assets/profile.jpg" alt="Shili Zhang" width="200" style="border-radius: 50%; border: 3px solid #00D9FF; box-shadow: 0 0 20px rgba(0, 217, 255, 0.5);">
 
 </td>
 </tr>
