@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shili Zhang - Robotics & AI Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --accent: #2563eb;
+            --accent-dark: #1d4ed8;
+            --bg-gradient: #ffffff;
+            --bg-gradient-hero: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --light-bg: #f8f9fa;
+            --border-color: #e9ecef;
+            --shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            --shadow-glow: 0 0 20px rgba(37, 99, 235, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .language-switcher {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            margin-left: 1rem;
+        }
+
+        .lang-btn {
+            padding: 0.5rem 1rem;
+            background: rgba(37, 99, 235, 0.1);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .lang-btn:hover {
+            background: rgba(37, 99, 235, 0.2);
+            color: var(--accent);
+        }
+
+        .lang-btn.active {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--accent);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--accent);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 5rem 1.5rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--bg-gradient-hero);
+            opacity: 0.5;
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 1;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .profile-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 4px solid var(--accent);
+            box-shadow: var(--shadow-glow);
+            margin-bottom: 2rem;
+            object-fit: cover;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .hero .subtitle {
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .hero .description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.875rem 2rem;
+            border: 2px solid var(--accent);
+            background: transparent;
+            color: var(--accent);
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background: var(--accent);
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-dark);
+            color: #ffffff;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent);
+            color: #ffffff;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--border-color);
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 1rem 2rem;
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            position: relative;
+            transition: color 0.3s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .tab-btn::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s;
+        }
+
+        .tab-btn:hover {
+            color: var(--accent);
+        }
+
+        .tab-btn.active {
+            color: var(--accent);
+        }
+
+        .tab-btn.active::after {
+            width: 100%;
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-card {
+            background: var(--light-bg);
+            padding: 1.25rem;
+            border-radius: 15px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+        }
+
+        .section-card h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .section-card p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, auto);
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(3, auto);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .skills-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+            }
+        }
+
+        .skill-item {
+            background: rgba(37, 99, 235, 0.1);
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--accent);
+            font-size: 0.9rem;
+            color: var(--text-primary);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .project-card {
+            background: var(--light-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .project-card h3 {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .project-video {
+            width: 100%;
+            height: 200px;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .project-meta {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .tag {
+            background: rgba(37, 99, 235, 0.15);
+            color: var(--accent);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        .project-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Publications Section */
+        .publication-item {
+            background: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .publication-item h3 {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-meta {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Resume Section */
+        .resume-container {
+            background: var(--light-bg);
+            border-radius: 15px;
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+        }
+
+        .resume-language-tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .lang-tab-btn {
+            padding: 0.75rem 1.5rem;
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .lang-tab-btn::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s;
+        }
+
+        .lang-tab-btn:hover {
+            color: var(--accent);
+        }
+
+        .lang-tab-btn.active {
+            color: var(--accent);
+        }
+
+        .lang-tab-btn.active::after {
+            width: 100%;
+        }
+
+        .resume-pdf-container {
+            width: 100%;
+            height: 80vh;
+            min-height: 600px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            background: #fff;
+        }
+
+        .resume-pdf-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .resume-download {
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .resume-download a {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .resume-download a:hover {
+            background: var(--accent-dark);
+        }
+
+        .resume-pdf-content {
+            display: none;
+        }
+
+        .resume-pdf-content.active {
+            display: block;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .contact-card {
+            background: var(--light-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .contact-card h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .contact-card a {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-card a:hover {
+            color: var(--accent);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(37, 99, 235, 0.1);
+            border-radius: 50%;
+            color: var(--accent);
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+            color: #ffffff;
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 1.25rem;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border-color);
+            margin-top: 2rem;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero {
+                padding: 6rem 1rem 3rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tabs {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .tab-btn {
+                padding: 0.75rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .main-content {
+                padding: 2rem 1rem;
+            }
+        }
+
+        /* GitHub Stats */
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .stats-container img {
+            width: 100%;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">SZ</div>
+            <ul class="nav-links">
+                <li><a href="#about" onclick="switchTab('about')" data-en="About" data-zh="关于">About</a></li>
+                <li><a href="#projects" onclick="switchTab('projects')" data-en="Projects" data-zh="项目">Projects</a></li>
+                <li><a href="#resume" onclick="switchTab('resume')" data-en="Resume" data-zh="简历">Resume</a></li>
+                <li><a href="#publications" onclick="switchTab('publications')" data-en="Publications" data-zh="研究">Publications</a>
+                </li>
+                <li><a href="#contact" onclick="switchTab('contact')" data-en="Contact" data-zh="联系">Contact</a></li>
+                <li>
+                    <div class="language-switcher">
+                        <button class="lang-btn active" onclick="switchLanguage('en')" id="lang-en">EN</button>
+                        <button class="lang-btn" onclick="switchLanguage('zh')" id="lang-zh">中文</button>
+                    </div>
+                </li>
+            </ul>
+            <button class="mobile-menu-btn">≡</button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <img src="assets/profile.jpg" alt="Shili Zhang" class="profile-image">
+            <h1>Shili Zhang</h1>
+            <p class="subtitle" data-en="Robotics & AI Engineer" data-zh="机器人学与AI工程师">Robotics & AI Engineer</p>
+            <p class="description"
+                data-en="Master's Student at Technische Universität Darmstadt<br>Specializing in Autonomous Systems, SLAM, Computer Vision & Transformer Methods"
+                data-zh="达姆施塔特工业大学硕士生<br>专注于自主系统、SLAM、计算机视觉与Transformer方法">
+                Master's Student at Technische Universität Darmstadt<br>
+                Specializing in Autonomous Systems, SLAM, Computer Vision & Transformer Methods
+            </p>
+            <div class="cta-buttons">
+                <a href="assets/resume/resume_zh.pdf" download="Shili_Zhang_Resume_CN.pdf" class="btn btn-primary"
+                    data-en="📄 Download CV (Chinese)" data-zh="📄 下载中文简历">📄 下载中文简历</a>
+                <a href="assets/resume/resume_en.pdf" download="Shili_Zhang_CV_EN.pdf" class="btn btn-secondary"
+                    data-en="📄 Download CV (English)" data-zh="📄 下载英文简历">📄 Download CV (English)</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Tabs -->
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab('about')" data-en="About Me" data-zh="关于我">About Me</button>
+            <button class="tab-btn" onclick="switchTab('projects')" data-en="Projects" data-zh="项目">Projects</button>
+            <button class="tab-btn" onclick="switchTab('resume')" data-en="Resume" data-zh="简历">Resume</button>
+            <button class="tab-btn" onclick="switchTab('publications')" data-en="Publications" data-zh="研究">Publications</button>
+            <button class="tab-btn" onclick="switchTab('contact')" data-en="Contact" data-zh="联系">Contact</button>
+        </div>
+
+        <!-- Tab Contents -->
+        <!-- About Tab -->
+        <div id="about" class="tab-content active">
+            <div class="about-grid">
+                <div class="section-card">
+                    <h3 data-en="About Me" data-zh="关于我">About Me</h3>
+                    <p data-en="I am a <strong>Master's student in Autonomous Systems and Robotics</strong> at <a href='https://www.tu-darmstadt.de/' target='_blank' style='color: var(--accent);'>Technische Universität Darmstadt</a>, focusing on <strong>intelligent robotics systems, SLAM, computer vision, and Transformer methods</strong> for scene understanding and task planning."
+                        data-zh="我是一名<strong>自主系统与机器人学硕士生</strong>，就读于<a href='https://www.tu-darmstadt.de/' target='_blank' style='color: var(--accent);'>达姆施塔特工业大学</a>，专注于<strong>智能机器人系统、SLAM、计算机视觉和Transformer方法</strong>，用于场景理解和任务规划。">
+                        I am a <strong>Master's student in Autonomous Systems and Robotics</strong> at 
+                        <a href="https://www.tu-darmstadt.de/" target="_blank" style="color: var(--accent);">Technische Universität Darmstadt</a>, 
+                        focusing on <strong>intelligent robotics systems, SLAM, computer vision, and Transformer methods</strong> 
+                        for scene understanding and task planning.
+                    </p>
+                    <p style="margin-top: 1rem;"
+                        data-en="I specialize in building <strong>end-to-end robotics systems</strong> that seamlessly integrate perception, planning, and control. With extensive experience in deploying ML models on edge devices and integrating complex robotic systems, I've successfully completed projects ranging from autonomous navigation to intelligent crack detection."
+                        data-zh="我专注于构建<strong>端到端机器人系统</strong>，无缝集成感知、规划和控制。在边缘设备上部署ML模型和集成复杂机器人系统方面拥有丰富经验，我成功完成了从自主导航到智能裂缝检测等多个项目。">
+                        I specialize in building <strong>end-to-end robotics systems</strong> that seamlessly integrate 
+                        perception, planning, and control. With extensive experience in deploying ML models on edge devices 
+                        and integrating complex robotic systems, I've successfully completed projects ranging from 
+                        autonomous navigation to intelligent crack detection.
+                    </p>
+                </div>
+                <div class="section-card">
+                    <h3 data-en="Languages" data-zh="语言能力">Languages</h3>
+                    <p data-en="Chinese (Native) | English (Fluent) | German (TestDaF 16) | Japanese (Basic)"
+                        data-zh="中文（母语）| 英语（流利）| 德语（德福16分）| 日语（基础）">Chinese (Native) | English (Fluent) | German (TestDaF 16) | Japanese
+                        (Basic)</p>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <h3 data-en="Technical Skills" data-zh="技术技能">Technical Skills</h3>
+                <div class="skills-grid">
+                    <div class="skill-item"><strong>AI & Computer Vision:</strong> PyTorch, TensorFlow, OpenCV, SLAM</div>
+                    <div class="skill-item"><strong>Programming:</strong> Python, C++, ROS2, Linux, Java</div>
+                    <div class="skill-item"><strong>Robotics:</strong> SLAM, Robotic Arm Control, Robot Learning</div>
+                    <div class="skill-item"><strong>Machine Learning:</strong> Reinforcement Learning, Deep Learning, Neural Networks</div>
+                    <div class="skill-item"><strong>Engineering:</strong> SolidWorks, 3D Printing, Finite Element Analysis</div>
+                    <div class="skill-item"><strong>Systems:</strong> BIM & GIS, VR/3D/4D Gaussian Splatting, Transformer, LLM</div>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <h3 data-en="Education" data-zh="教育背景">Education</h3>
+                <div style="margin-bottom: 1.5rem;">
+                    <h4 style="color: var(--accent); margin-bottom: 0.5rem;">Technische Universität Darmstadt</h4>
+                    <p><strong>M.Sc. Autonomous Systems and Robotics</strong> | Sep. 2023 - Present</p>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">
+                        Core Courses: Machine Learning, Deep Learning, Reinforcement Learning, Robotics Learning, 
+                        Computer Vision, Software Engineering, Natural Language Processing
+                    </p>
+                </div>
+                <div style="margin-bottom: 1.5rem;">
+                    <h4 style="color: var(--accent); margin-bottom: 0.5rem;">Hochschule Furtwangen University</h4>
+                    <p><strong>B.Sc. Mechanical Engineering</strong> | Sep. 2022 - Aug. 2023</p>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">GPA: 1.9 (German scale, ≈3.33 international, Top 5-20%)</p>
+                </div>
+                <div>
+                    <h4 style="color: var(--accent); margin-bottom: 0.5rem;">University of Shanghai for Science and Technology</h4>
+                    <p><strong>B.Eng. Mechanical Design & Automation</strong> | Sep. 2019 - Jul. 2022</p>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">Outstanding Graduate, Second-class Scholarship</p>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <h3 data-en="Work Experience" data-zh="工作经历">Work Experience</h3>
+                <div style="margin-bottom: 1.5rem;">
+                    <h4 style="color: var(--accent); margin-bottom: 0.5rem;" data-en="Research Intern | Engineer Assistant"
+                        data-zh="工程师助理（实习）">Research Intern | Engineer Assistant</h4>
+                    <p><strong>Ningbo Digital Twin Research Institute (东方理工)</strong> | Feb. 2022 - Jan. 2025 | Ningbo, China</p>
+                    <p style="color: var(--text-secondary); margin-bottom: 0.5rem; font-weight: 600;"
+                        data-en="Project Lead | Reinforcement Learning | VLA Model | Model Deployment | End-to-end Deployment | PyTorch | ROS2 | Robot Learning"
+                        data-zh="课题负责人 | 强化学习 | VLA模型 | 模型部署 | 端到端部署 | PyTorch | ROS2 | 机器人学习">Project Lead | <strong>Reinforcement
+                            Learning</strong> | <strong>VLA Model</strong> | <strong>Model Deployment</strong> | <strong>End-to-end
+                            Deployment</strong> | PyTorch | ROS2 | Robot Learning</p>
+                    <p style="color: var(--text-secondary); margin-top: 0.5rem; line-height: 1.6;"
+                        data-en="Deployed Vision-Language-Action (VLA) multimodal model for end-to-end inference, mapping natural language instructions to robot actions, achieving inference latency < 200ms. Deployed reinforcement learning policy models (PPO/SAC) to robot platform, achieving real-time policy inference and action execution at 10Hz update frequency. Optimized VLA model inference performance through model quantization (INT8), knowledge distillation, and model pruning, reducing inference time from 350ms to 180ms (48.6% improvement), GPU memory usage reduced by 35%. Designed fusion mechanism for visual features, language instructions, and action space, achieving end-to-end multimodal perception-decision-control loop, task success rate improved from 72% to 88%. Integrated VLA model and reinforcement learning policy on ROS2 framework, completed end-to-end system deployment, validated in simulation environment, supporting natural language-controlled robot manipulation tasks."
+                        data-zh="实现VLA模型部署：部署Vision-Language-Action（VLA）多模态模型，实现视觉-语言-动作的端到端推理，支持自然语言指令到机器人动作的映射，推理延迟 < 200ms。实现强化学习策略部署：将训练好的强化学习策略模型（PPO/SAC）部署到机器人平台，实现实时策略推理与动作执行，策略更新频率达 10Hz。优化模型推理性能：通过模型量化（INT8）、知识蒸馏与模型剪枝，优化VLA模型推理速度，推理时间从 350ms 降至 180ms（提升 48.6%），GPU内存占用降低 35%。实现多模态数据融合：设计视觉特征、语言指令与动作空间的融合机制，实现端到端的多模态感知-决策-控制闭环，任务成功率从 72% 提升至 88%。完成系统集成与验证：在ROS2框架上集成VLA模型与强化学习策略，完成端到端系统部署，在仿真环境中验证，支持自然语言控制的机器人操作任务。">
+                        Deployed <strong>Vision-Language-Action (VLA)</strong> multimodal model for end-to-end inference, mapping natural
+                        language instructions to robot actions, achieving inference latency < 200ms. Deployed <strong>reinforcement learning
+                            policy models (PPO/SAC)</strong> to robot platform, achieving real-time policy inference and action execution at
+                            10Hz update frequency. Optimized model inference performance through <strong>model quantization (INT8),
+                                knowledge distillation, and model pruning</strong>, reducing inference time from 350ms to 180ms (48.6%
+                            improvement), GPU memory usage reduced by 35%. Designed fusion mechanism for visual features, language
+                            instructions, and action space, achieving end-to-end <strong>multimodal perception-decision-control
+                                loop</strong>, task success rate improved from 72% to 88%. Integrated VLA model and reinforcement learning
+                            policy on <strong>ROS2 framework</strong>, completed end-to-end system deployment, validated in simulation
+                            environment, supporting natural language-controlled robot manipulation tasks.
+                    </p>
+                    <p style="color: var(--accent); font-weight: 600; margin-top: 0.75rem;"
+                        data-en="Results: Successfully deployed VLA model and RL policy, achieved 88% task success rate, inference latency < 200ms, validated the effectiveness of multimodal models in robot control"
+                        data-zh="量化成果：成功部署VLA模型与强化学习策略，实现自然语言指令到机器人动作的端到端推理，任务成功率 88%，推理延迟 < 200ms，验证了多模态模型在机器人控制中的有效性">Results: 88% task
+                        success rate | Inference latency < 200ms | Validated the effectiveness of multimodal models in robot control</p>
+                </div>
+                <div>
+                    <h4 style="color: var(--accent); margin-bottom: 0.5rem;" data-en="Laboratory Intern | Test Engineer Assistant"
+                        data-zh="测试工程师助理（实习）">Laboratory Intern | Test Engineer Assistant</h4>
+                    <p><strong>BorgWarner China Technical Center</strong> | Feb. 2022 - Aug. 2022 | Shanghai, China</p>
+                    <p style="color: var(--text-secondary); margin-top: 0.5rem; line-height: 1.6;"
+                        data-en="Executed OEM standard component measurement, assembly, and quality inspection, participated in laboratory automation and data acquisition process optimization. Reduced experimental error rate by ~12%, improved detection efficiency by 15%. Developed rigorous engineering experimental and quality control mindset, laying the foundation for subsequent robot hardware interface and sensor data fusion."
+                        data-zh="执行OEM标准零部件计量、装配与质量检测，参与实验室自动化与数据采集流程优化。实验误差率降低约 12%，检测流程效率提升 15%。培养严谨工程实验与质量控制思维，为后续机器人硬件接口与传感器数据融合奠定基础">
+                        Executed <strong>OEM standard</strong> component measurement, assembly, and quality inspection, participated in
+                        laboratory automation and data acquisition process optimization. Reduced experimental error rate by
+                        <strong>~12%</strong>, improved detection efficiency by <strong>15%</strong>. Developed rigorous engineering
+                        experimental and quality control mindset, laying the foundation for subsequent robot hardware interface and sensor
+                        data fusion.
+                    </p>
+                </div>
+            </div>
+
+            <div class="stats-container">
+                <img src="https://github-readme-stats.vercel.app/api?username=1062270094zsl-cloud&show_icons=true&theme=default&hide_border=true&bg_color=ffffff&title_color=2563eb&icon_color=2563eb&text_color=1f2937&include_all_commits=true&count_private=true" alt="GitHub Stats">
+                <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=1062270094zsl-cloud&layout=compact&theme=default&hide_border=true&bg_color=ffffff&title_color=2563eb&text_color=1f2937" alt="Top Languages">
+            </div>
+        </div>
+
+        <!-- Projects Tab -->
+        <div id="projects" class="tab-content">
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img src="assets/projects/maze-navigation-demo.png" alt="ROS2 Maze Navigation Demo" class="project-image">
+                    <h3 data-en="ROS2 Real-time SLAM Navigation & Search-Rescue Task" data-zh="ROS2 实时SLAM导航与搜救任务（多传感器融合）">ROS2 Real-time
+                        SLAM Navigation & Search-Rescue Task</h3>
+                    <p class="project-meta">Apr. 2025 - Jul. 2025 | Project Lead</p>
+                    <p style="color: var(--text-secondary); margin-bottom: 0.75rem; font-weight: 600;"
+                        data-en="Real-time SLAM | Multi-sensor Fusion | A* Path Planning | LiDAR+Camera Fusion | ROS2 | OpenCV | End-to-end Navigation System"
+                        data-zh="实时SLAM | 多传感器融合 | A*路径规划 | LiDAR+相机融合 | ROS2 | OpenCV | 端到端导航系统">Real-time SLAM | Multi-sensor Fusion | A*
+                        Path Planning | LiDAR+Camera Fusion | ROS2 | OpenCV</p>
+                    <ul style="color: var(--text-secondary); margin-bottom: 1rem; padding-left: 1.5rem; font-size: 0.95rem;">
+                        <li data-en="Implemented topology-based path planning algorithm from scratch, reducing path planning time from 250ms to 85ms (66% improvement), path length optimized by 12%"
+                            data-zh="自行实现拓扑路径规划算法：基于图论构建环境拓扑结构，设计启发式函数优化路径搜索，路径规划时间从 250ms 降至 85ms（提升 66%），路径长度优化 12%">Implemented
+                            <strong>topology-based path planning</strong> algorithm from scratch, reducing planning time from 250ms to 85ms
+                            (66% improvement)
+                        </li>
+                        <li data-en="Implemented A* path planning algorithm from scratch, distinguishing Position, Path, and Trajectory concepts, improving computational efficiency by 3.2x"
+                            data-zh="实现A*路径规划算法：从零实现A*搜索算法（非调包），明确区分Position（位置）、Path（路径）、Trajectory（轨迹）三个概念，计算效率提升 3.2倍">Implemented
+                            <strong>A* path planning</strong> algorithm from scratch, distinguishing Position, Path, and Trajectory
+                            concepts, efficiency improved by 3.2x
+                        </li>
+                        <li data-en="Configured and optimized Cartographer SLAM, adjusting LiDAR-camera-IMU sensor fusion parameters, improving mapping accuracy from 8cm to 5.2cm (35% improvement), positioning error < 3cm"
+                            data-zh="配置与优化Cartographer SLAM：调整LiDAR-相机-IMU传感器融合参数，优化回环检测与地图更新策略，建图精度从 8cm 提升至 5.2cm（提升 35%），定位误差 < 3cm">
+                            Configured and optimized <strong>Cartographer SLAM</strong>, improving mapping accuracy from 8cm to 5.2cm (35%
+                            improvement), positioning error < 3cm</li>
+                        <li data-en="Implemented OpenCV visual localization module, writing marker detection and pose estimation code, achieving 96.5% target recognition accuracy, realizing visual-LiDAR fusion localization"
+                            data-zh="实现OpenCV视觉定位模块：自行编写标志物检测与位姿估计代码，通过PnP算法计算目标3D坐标（非纯调包），目标识别准确率达 96.5%，实现视觉-激光融合定位">Implemented
+                            <strong>OpenCV visual localization</strong> module, achieving 96.5% target recognition accuracy, realizing
+                            visual-LiDAR fusion
+                        </li>
+                        <li data-en="Integrated ROS2 Navigation2 framework modules, completed end-to-end system integration, achieving 95.8% autonomous exploration success rate, path planning response time < 100ms"
+                            data-zh="系统集成与调试：整合ROS2 Navigation2框架各模块，完成端到端系统集成，在实验室环境下实现无人干预自主探索，导航成功率达 95.8%，路径规划响应时间 < 100ms">Integrated
+                            <strong>ROS2 Navigation2</strong> framework, achieving 95.8% navigation success rate, response time < 100ms</li>
+                    </ul>
+                    <div class="project-tags">
+                        <span class="tag">Real-time SLAM</span>
+                        <span class="tag">Multi-sensor Fusion</span>
+                        <span class="tag">A* Path Planning</span>
+                        <span class="tag">Cartographer</span>
+                        <span class="tag">ROS2</span>
+                        <span class="tag">OpenCV</span>
+                    </div>
+                    <p style="color: var(--accent); font-weight: 600; margin-top: 1rem;"
+                        data-en="Results: 95.8% navigation success rate | Path planning response time < 100ms | Average task completion time reduced by 28%"
+                        data-zh="量化成果：系统在实验室环境下无人干预完成自主探索任务，实时SLAM导航成功率达 95.8%，路径规划响应时间 < 100ms，平均任务完成时间缩短 28%">Results: 95.8% navigation
+                        success rate | Response time < 100ms | Task completion time -28%</p>
+                    <a href="https://github.com/1062270094zsl-cloud/ros2-maze-navigation-searchforce" target="_blank" class="project-link">
+                        View Project →
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <h3 data-en="Transformer Few-Shot Semantic Segmentation (Vision Transformer Architecture Optimization)"
+                        data-zh="Transformer小样本语义分割（Vision Transformer架构优化）">Transformer Few-Shot Semantic Segmentation</h3>
+                    <p class="project-meta">Oct. 2024 - Apr. 2025 | Project Lead</p>
+                    <p style="color: var(--text-secondary); margin-bottom: 0.75rem; font-weight: 600;"
+                        data-en="Vision Transformer (ViT) | Transformer Architecture | Self-supervised/Weakly-supervised/Fully-supervised | Model Optimization | +9.4% performance improvement on small datasets"
+                        data-zh="Vision Transformer (ViT) | Transformer架构 | 自监督/弱监督/全监督 | 模型优化 | 小数据集性能提升 +9.4%">Vision Transformer (ViT) |
+                        Transformer Architecture | Self-supervised/Weakly-supervised/Fully-supervised | Model Optimization</p>
+                    <ul style="color: var(--text-secondary); margin-bottom: 1rem; padding-left: 1.5rem; font-size: 0.95rem;">
+                        <li data-en="Designed comparative experiment framework, evaluating three Transformer backbones (DINOv2 self-supervised, CLIP weakly-supervised, ImageNet ViT-B/16 fully-supervised) on few-shot tasks, established baseline (mIoU 52.3%) on PASCAL-5i dataset, found DINOv2 performs best in few-shot scenarios"
+                            data-zh="设计对比实验框架：评估自监督（DINOv2）、弱监督（CLIP）与全监督（ImageNet ViT-B/16）三种Transformer骨干网络在few-shot任务中的表现，在PASCAL-5i数据集上建立baseline（mIoU 52.3%），发现DINOv2在few-shot场景下表现最优">
+                            Designed <strong>comparative experiment framework</strong>, evaluating three Transformer backbones (DINOv2,
+                            CLIP, ImageNet ViT-B/16), established baseline (mIoU 52.3%) on PASCAL-5i</li>
+                        <li data-en="Implemented feature extraction and fine-tuning pipeline, using pre-trained Transformer backbone as feature extractor, designed fine-tuning strategy (learning rate 1e-4, warmup 500 steps, cosine annealing scheduler), completed end-to-end training on CST Transformer framework, supporting 1-shot and 5-shot learning scenarios"
+                            data-zh="实现特征提取与微调流程：将预训练Transformer骨干作为特征提取器，设计微调策略（学习率1e-4，warmup 500步，余弦退火调度），在CST Transformer框架上完成端到端训练，支持1-shot和5-shot学习场景">
+                            Implemented <strong>feature extraction and fine-tuning</strong> pipeline, designed fine-tuning strategy (LR
+                            1e-4, warmup 500 steps), supporting 1-shot and 5-shot learning</li>
+                        <li data-en="Optimized model architecture and training strategy, adjusted loss function weights (classification:segmentation = 1:2), designed data augmentation strategy (random crop, color jitter), optimized model performance, validated on PASCAL-5i dataset"
+                            data-zh="优化模型架构与训练策略：调整损失函数权重（分类损失：分割损失 = 1:2），设计数据增强策略（随机裁剪、颜色抖动），优化模型性能，在PASCAL-5i数据集上验证">Optimized
+                            <strong>model architecture and training strategy</strong>, adjusted loss function weights, designed data
+                            augmentation, validated on PASCAL-5i
+                        </li>
+                        <li data-en="Used mIoU (mean Intersection over Union) and accuracy as evaluation metrics, analyzed component contributions through ablation experiments, completed experimental report and technical documentation"
+                            data-zh="评估指标与结果分析：使用mIoU（平均交并比）和准确率作为评估指标，通过消融实验分析各组件贡献，完成实验报告与技术文档">Used <strong>mIoU and accuracy</strong> as
+                            evaluation metrics, analyzed component contributions through ablation experiments</li>
+                    </ul>
+                    <div class="project-tags">
+                        <span class="tag">Vision Transformer</span>
+                        <span class="tag">DINOv2</span>
+                        <span class="tag">Few-shot Learning</span>
+                        <span class="tag">CST Transformer</span>
+                        <span class="tag">PyTorch</span>
+                    </div>
+                    <p style="color: var(--accent); font-weight: 600; margin-top: 1rem;"
+                        data-en="Results: mIoU improved from 52.3% to 61.7% (+9.4pp) | 1-shot accuracy improved from 48.1% to 56.8% (+8.7pp)"
+                        data-zh="量化结果：通过Transformer架构优化与模型调参，小样本语义分割mIoU从 52.3% 提升至 61.7%（提升 9.4pp），1-shot准确率从 48.1% 提升至 56.8%（提升 8.7pp）">
+                        Results: mIoU 52.3% → 61.7% (+9.4pp) | 1-shot accuracy 48.1% → 56.8% (+8.7pp)</p>
+                    <a href="https://github.com/1062270094zsl-cloud/few-shot-learning-cst" target="_blank" class="project-link">
+                        View Project →
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <h3 data-en="Robotic Arm Visual Servoing & Real-time Control (Trajectory Optimization & Collision Avoidance)"
+                        data-zh="机械臂视觉伺服与实时控制（轨迹优化与避碰）">Robotic Arm Visual Servoing & Real-time Control</h3>
+                    <p class="project-meta">Nov. 2024 - Feb. 2025 | Project Lead</p>
+                    <p style="color: var(--text-secondary); margin-bottom: 0.75rem; font-weight: 600;"
+                        data-en="Visual Servoing | Real-time Control | Gazebo Trajectory Optimization & Collision Avoidance | ROS2 | MoveIt! | Python | Kalman Filter"
+                        data-zh="视觉伺服 | 实时控制 | Gazebo轨迹优化与避碰 | ROS2 | MoveIt! | Python | 卡尔曼滤波">Visual Servoing | Real-time Control |
+                        Trajectory Optimization & Collision Avoidance | ROS2 | MoveIt! | Python</p>
+                    <ul style="color: var(--text-secondary); margin-bottom: 1rem; padding-left: 1.5rem; font-size: 0.95rem;">
+                        <li data-en="Implemented visual localization and pose estimation using RGB-D camera, wrote OpenCV code for target detection, calculated target Position and pose through PnP algorithm, pose estimation accuracy < 2mm (not pure library calls)"
+                            data-zh="实现视觉定位与位姿估计：使用RGB-D摄像头获取点云数据，自行编写OpenCV代码进行目标检测，通过PnP算法计算目标物体Position（位置）和姿态，位姿估计精度 < 2mm（非纯调包）">
+                            Implemented <strong>visual localization and pose estimation</strong> using RGB-D camera, pose estimation
+                            accuracy < 2mm</li>
+                        <li data-en="Implemented inverse kinematics solver based on MoveIt! framework, wrote inverse kinematics solver code, calculated joint angles to achieve target Position, completed precise grasping, control frequency reached 100Hz"
+                            data-zh="实现逆运动学解算：基于MoveIt!框架，自行编写逆运动学求解器，计算机械臂各关节角度以实现目标Position，完成精准夹取，控制频率达 100Hz">Implemented
+                            <strong>inverse kinematics solver</strong> based on MoveIt!, control frequency reached 100Hz
+                        </li>
+                        <li data-en="Implemented trajectory planning algorithm, implemented cubic spline interpolation algorithm from scratch to generate smooth Trajectory from current position to target position, clearly distinguishing Path (global path) and Trajectory (local trajectory), trajectory smoothness improved by 35%, execution time reduced by 18%"
+                            data-zh="实现轨迹规划算法：自行实现三次样条插值算法生成从当前位置到目标位置的平滑Trajectory（轨迹），明确区分Path（全局路径）与Trajectory（局部轨迹），轨迹平滑度提升 35%，执行时间缩短 18%">
+                            Implemented <strong>trajectory planning</strong> using cubic spline interpolation, trajectory smoothness
+                            improved by 35%, execution time -18%</li>
+                        <li data-en="Implemented dynamic obstacle avoidance algorithm, wrote Extended Kalman Filter (EKF) code to predict obstacle motion trajectory, updated robot Path in real-time, achieved dynamic obstacle avoidance and real-time path optimization, obstacle avoidance success rate improved from 78% to 98%"
+                            data-zh="实现动态避障算法：自行编写扩展卡尔曼滤波(EKF)代码预测障碍物运动轨迹，实时更新机械臂Path（路径），实现动态避障与实时路径优化，避障成功率从 78% 提升至 98%">Implemented
+                            <strong>dynamic obstacle avoidance</strong> using Extended Kalman Filter (EKF), obstacle avoidance success rate
+                            78% → 98%
+                        </li>
+                        <li data-en="Completed end-to-end system integration in Pybullet simulation environment, achieved 6-DOF robotic arm visual servoing control, completed 100% grasping task success rate, supporting multi-object continuous grasping"
+                            data-zh="系统集成与测试：在Pybullet仿真环境中完成端到端系统集成，实现6-DOF机械臂视觉伺服控制，完成 100% 夹取任务成功率，支持多物体连续抓取">Completed
+                            <strong>end-to-end system integration</strong> in Pybullet, achieved 100% grasping success rate
+                        </li>
+                    </ul>
+                    <div class="project-tags">
+                        <span class="tag">Visual Servoing</span>
+                        <span class="tag">EKF</span>
+                        <span class="tag">MoveIt!</span>
+                        <span class="tag">ROS2</span>
+                        <span class="tag">Pybullet</span>
+                    </div>
+                    <p style="color: var(--accent); font-weight: 600; margin-top: 1rem;"
+                        data-en="Results: 100% grasping success rate | Real-time obstacle avoidance efficiency improved by 22.5% | Trajectory optimization response time < 50ms | Average task completion time reduced by 25%"
+                        data-zh="量化成果：在仿真环境中完成 100% 夹取任务成功率，实时避障效率提升 22.5%，轨迹优化响应时间 < 50ms，平均任务完成时间缩短 25%">Results: 100% grasping success
+                        rate | Obstacle avoidance efficiency +22.5% | Response time < 50ms | Task completion time -25%</p>
+                </div>
+
+                <div class="project-card">
+                    <h3 data-en="Crack Detection Robot (Intelligent Inspection Robot System)" data-zh="裂缝检测机器人（智能巡检机器人系统）">Crack Detection
+                        Robot</h3>
+                    <p class="project-meta">Feb. 2022 - Jan. 2025 | Project Lead</p>
+                    <p style="color: var(--text-secondary); margin-bottom: 0.75rem; font-weight: 600;"
+                        data-en="Jetson | YOLO | ROS2 | SLAM | BIM & GIS | 4D Gaussian Splatting | Edge Computing"
+                        data-zh="Jetson | YOLO | ROS2 | SLAM | BIM & GIS | 4D高斯点云 | 边缘计算">Jetson | YOLO | ROS2 | SLAM | BIM & GIS | 4D
+                        Gaussian Splatting</p>
+                    <ul style="color: var(--text-secondary); margin-bottom: 1rem; padding-left: 1.5rem; font-size: 0.95rem;">
+                        <li data-en="Deployed YOLO network on Jetson edge computing platform, achieving 92%+ detection accuracy"
+                            data-zh="在Jetson边缘计算平台上部署YOLO网络，实现92%+检测准确率">Deployed <strong>YOLO network</strong> on Jetson edge computing
+                            platform, achieving 92%+ detection accuracy</li>
+                        <li data-en="Integrated BIM & GIS modules for spatial localization and map visualization"
+                            data-zh="集成BIM & GIS模块，实现空间定位与地图可视化">Integrated <strong>BIM & GIS</strong> modules for spatial localization and
+                            map visualization</li>
+                        <li data-en="Implemented ROS2 + SLAM for environment mapping and path planning" data-zh="实现ROS2 + SLAM，完成环境建图与路径规划">
+                            Implemented <strong>ROS2 + SLAM</strong> for environment mapping and path planning</li>
+                        <li data-en="Created VR/3D & 4D Gaussian Splatting scene reconstruction, improving navigation accuracy by 22%"
+                            data-zh="创建VR/3D & 4D高斯点云场景重建，导航精度提升 22%">Created <strong>VR/3D & 4D Gaussian Splatting</strong> scene
+                            reconstruction, improving navigation accuracy by 22%</li>
+                    </ul>
+                    <div class="project-tags">
+                        <span class="tag">Jetson</span>
+                        <span class="tag">YOLO</span>
+                        <span class="tag">ROS2</span>
+                        <span class="tag">SLAM</span>
+                        <span class="tag">BIM & GIS</span>
+                        <span class="tag">4D Gaussian Splatting</span>
+                    </div>
+                    <p style="color: var(--accent); font-weight: 600; margin-top: 1rem;"
+                        data-en="Results: 92%+ detection accuracy | Navigation accuracy improved by 22%"
+                        data-zh="量化成果：92%+检测准确率 | 导航精度提升 22%">Results: 92%+ detection accuracy | Navigation accuracy +22%</p>
+                    <a href="https://github.com/1062270094zsl-cloud/crack-detection-robot" target="_blank" class="project-link">
+                        View Project →
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <img src="assets/projects/vacuum-robot-demo.jpg" alt="Vacuum Cleaning Robot Demo" class="project-image">
+                    <h3 data-en="Vacuum Cleaning Robot Development & Construction (Embedded System Development)"
+                        data-zh="扫地机器人开发与构建（嵌入式系统开发）">Vacuum Cleaning Robot</h3>
+                    <p class="project-meta">Mar. 2023 - Aug. 2023 | Project Lead</p>
+                    <p style="color: var(--text-secondary); margin-bottom: 0.75rem; font-weight: 600;"
+                        data-en="Mechanical Design | 3D Printing | Microcontroller Motion & Obstacle Avoidance Program Development | Embedded System"
+                        data-zh="机械设计 | 3D打印 | 单片机运动与避障程序开发 | 嵌入式系统">Mechanical Design | 3D Printing | Microcontroller | Embedded System</p>
+                    <ul style="color: var(--text-secondary); margin-bottom: 1rem; padding-left: 1.5rem; font-size: 0.95rem;">
+                        <li data-en="Completed mechanical structure design using SolidWorks, designed robot chassis, cleaning mechanism, and sensor mounting structure, 3D printed prototype, completed hardware system integration"
+                            data-zh="完成机械结构设计：使用SolidWorks设计机器人底盘、清扫机构与传感器安装结构，3D打印制作原型，完成硬件系统集成">Completed <strong>mechanical structure
+                                design</strong> using SolidWorks, 3D printed prototype, completed hardware system integration</li>
+                        <li data-en="Wrote embedded control program based on Arduino/STM32 microcontroller, wrote C/C++ code for motor control, sensor data acquisition, and obstacle avoidance algorithm, achieved autonomous movement and real-time control"
+                            data-zh="编写嵌入式控制程序：基于Arduino/STM32单片机，自行编写C/C++代码实现电机控制、传感器数据采集与避障算法，实现自主移动与实时控制">Wrote <strong>embedded control
+                                program</strong> based on Arduino/STM32, implemented motor control and obstacle avoidance algorithm</li>
+                        <li data-en="Implemented obstacle avoidance algorithm optimization, designed obstacle avoidance strategy based on ultrasonic and infrared sensors, optimized algorithm parameters (threshold, response time) through multiple experiments, improved operation efficiency and stability"
+                            data-zh="实现避障算法优化：设计基于超声波与红外传感器的避障策略，通过多轮实验优化算法参数（阈值、响应时间），提高运行效率和稳定性">Implemented <strong>obstacle avoidance
+                                algorithm optimization</strong>, optimized algorithm parameters through multiple experiments</li>
+                        <li data-en="Conducted system testing and validation in indoor environment, optimized cleaning path planning, completed algorithm tuning and system integration"
+                            data-zh="系统测试与验证：在室内环境下进行系统测试，优化清扫路径规划，完成算法调优与系统集成">Conducted <strong>system testing and validation</strong> in
+                            indoor environment, optimized cleaning path planning</li>
+                    </ul>
+                    <div class="project-tags">
+                        <span class="tag">Mechanical Design</span>
+                        <span class="tag">3D Printing</span>
+                        <span class="tag">Arduino/STM32</span>
+                        <span class="tag">C/C++</span>
+                        <span class="tag">Embedded System</span>
+                        </div>
+                        <p style="color: var(--accent); font-weight: 600; margin-top: 1rem;"
+                            data-en="Results: 90%+ coverage rate | Obstacle avoidance response time < 200ms"
+                            data-zh="量化结果：系统在室内环境下稳定完成清扫任务，覆盖率达 90%+，避障响应时间 < 200ms">Results: 90%+ coverage rate | Obstacle avoidance response
+                            time < 200ms</p>
+                                </div>
+                                </div>
+                                </div>
+                        
+                                <!-- Resume Tab -->
+                                <div id="resume" class="tab-content">
+                                    <div class="resume-container">
+                                        <div class="resume-language-tabs">
+                                            <button class="lang-tab-btn active" onclick="switchResumeLang('zh')" data-en="Chinese"
+                                                data-zh="中文">中文</button>
+                                            <button class="lang-tab-btn" onclick="switchResumeLang('en')" data-en="English"
+                                                data-zh="English">English</button>
+                                        </div>
+                        
+                                        <div id="resume-zh" class="resume-pdf-content active">
+                                            <div class="resume-pdf-container">
+                                                <iframe src="assets/resume/resume_zh.pdf" type="application/pdf"></iframe>
+                                            </div>
+                                            <div class="resume-download">
+                                                <a href="assets/resume/resume_zh.pdf" download="Shili_Zhang_Resume_CN.pdf"
+                                                    data-en="Download Chinese Resume" data-zh="下载中文简历">下载中文简历 (Download Chinese Resume)</a>
+                                            </div>
+                                        </div>
+        <div id="resume-en" class="resume-pdf-content" style="display: none;">
+            <div class="resume-pdf-container">
+                <iframe src="assets/resume/resume_en.pdf" type="application/pdf"></iframe>
+            </div>
+            <div class="resume-download">
+                <a href="assets/resume/resume_en.pdf" download="Shili_Zhang_CV_EN.pdf" data-en="Download English CV"
+                    data-zh="下载英文简历">Download English CV (下载英文简历)</a>
+            </div>
+        </div>
+
+        <!-- Publications Tab -->
+        <div id="publications" class="tab-content">
+            <div class="section-card">
+                <h3>Research Interests</h3>
+                <div style="margin-top: 1.5rem;">
+                    <h4 style="color: var(--accent); margin-bottom: 0.5rem;">Embodied AI & Robotics</h4>
+                    <ul style="color: var(--text-secondary); padding-left: 1.5rem; margin-bottom: 1.5rem;">
+                        <li>Autonomous Navigation - Real-time mapping and navigation systems</li>
+                        <li>SLAM & Path Planning - Environment mapping and exploration</li>
+                        <li>Robot Manipulation & Control - Precise motion control</li>
+                        <li>Human-Robot Interaction - Collaborative robotics</li>
+                    </ul>
+
+                    <h4 style="color: var(--accent); margin-bottom: 0.5rem;">Computer Vision & Machine Learning</h4>
+                    <ul style="color: var(--text-secondary); padding-left: 1.5rem; margin-bottom: 1.5rem;">
+                        <li>Few-Shot Learning - Advanced visual understanding with limited data</li>
+                        <li>Vision Transformers - Transformer-based vision models</li>
+                        <li>Object Detection & Segmentation - Real-time target recognition</li>
+                        <li>Deep Reinforcement Learning - Intelligent decision making</li>
+                    </ul>
+
+                    <h4 style="color: var(--accent); margin-bottom: 0.5rem;">Applications</h4>
+                    <ul style="color: var(--text-secondary); padding-left: 1.5rem;">
+                        <li>Wearable Robotics - Human augmentation systems</li>
+                        <li>Rehabilitation Robots - Medical assistance</li>
+                        <li>Therapeutic Robots - Healthcare support</li>
+                        <li>Assistive Technology - Accessibility solutions</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <h3>Current Research Focus</h3>
+                <p style="color: var(--text-secondary); line-height: 1.8;">
+                    My research interests focus on <strong>perception fusion and environmental interaction 
+                    in intelligent robotics systems</strong>, particularly applying <strong>SLAM, visual servoing, 
+                    and Transformer</strong> methods to scene understanding, action recognition, and task planning.
+                </p>
+                <p style="color: var(--text-secondary); line-height: 1.8; margin-top: 1rem;">
+                    I am looking forward to working in the fields of <strong>wearable robotics, rehabilitation, 
+                    and therapeutic robots</strong>.
+                </p>
+            </div>
+        </div>
+
+        <!-- Contact Tab -->
+        <div id="contact" class="tab-content">
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h3 data-en="Phone" data-zh="电话">Phone</h3>
+                    <p>+86 13541154240</p>
+                </div>
+                <div class="contact-card">
+                    <h3 data-en="Location" data-zh="位置">Location</h3>
+                    <p>Darmstadt, Germany</p>
+                </div>
+            </div>
+
+            <div class="section-card" style="margin-top: 2rem; text-align: center;">
+                <h3 data-en="Let's Connect!" data-zh="让我们联系！">Let's Connect!</h3>
+                <p style="color: var(--text-secondary); margin-top: 1rem;"
+                    data-en="I'm always open to discussing robotics, AI, and potential collaborations. Feel free to reach out!"
+                    data-zh="我始终乐于讨论机器人、AI和潜在的合作机会。欢迎随时联系！">
+                    I'm always open to discussing robotics, AI, and potential collaborations. 
+                    Feel free to reach out!
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Shili Zhang. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Last Updated: January 2025</p>
+    </footer>
+
+    <script>
+        // Tab Switching Function
+        function switchTab(tabName) {
+            // Hide all tab contents
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Remove active class from all tab buttons
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // Show selected tab content
+            document.getElementById(tabName).classList.add('active');
+
+            // Add active class to clicked button
+            event.target.classList.add('active');
+
+            // Update URL hash
+            window.location.hash = tabName;
+
+            // Scroll to top of content
+            document.querySelector('.main-content').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+                            // Resume Language Switching Function
+                            f                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ide  all resume                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          umeC                                                            c                                                                                                                                                                torAll('.resume-pdf-content                                                                                                                                                                                                                                                                                                                 e                                                                                                                                                                (content => {
+                                                                                                                                    con                                                                                                                emove('acti                                                                                                                                                                                                                      ent.style.display = 'none';
+                                                                                                          ;
+
+                                                                                      ove activ                                    all langua                                                                                                                                           co                                    o                                    t.querySelectorAll('.lang-tab-btn');
+                                ngButtons.forEach(btn => {
+                                    btn.classList.remov('acti                                                                                                                           /                                    ted language content
+                                                        const selectedContent = document.getElementById(`resume-${lang}`);
+                                                                                                                       se                                'active');
+                                y = 'block';
+                                                        active class to clicked button
+                                target.classList.add('active');
+                                                               // Main Language                                                    let currentLang = loc                                                                                                                                                                                                ons',
+                                                                                                   },
+                                resume: 'Resume',
+                                    co                                                                                                                                   title: 'About Me',
+                                        ontent: 'I am a <s                                            stems and Robotics</strong> at                                            target="_blank" sty                                        e U                                        n <stron                                                     ects ranging                                                          于',
+                                            contact: '联系'
+                                g | 日语（基础）',
+                                                                                                                                                                                                                                                              }
+
+                                // Update all elements with data attribu s                                     
+                                                                                    N' ||                                                                                                                  // For                                                                                                                                                                el.textCont                                                               }
+                                el.innerHTML = content;
+                                             
+                                        }
+                                });
+                            }
+
+                                     ply saved language and handle hash on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            // Apply saved language first
+            if (currentLang && currentLang !== 'en') {
+                switchLanguage(currentLang);
+            }
+
+            // Handle hash
+            const hash = window.location.hash.substring(1);
+            if (hash && ['about', 'projects', 'resume', 'publications', 'contact'].includes(hash)) {
+                const contents = document.querySelectorAll('.tab-content');
+                contents.forEach(content => {
+                    content.classList.remove('active');
+                });
+                const buttons = document.querySelectorAll('.tab-btn');
+                buttons.forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                const targetContent = document                             tr                                                 +)'/)?.[1];
+                                                                                                                           h) {
+                        t
+                    });
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Mobile menu toggle (if needed)
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            });
+        }
+    </script>
+</body>
+</html>
+
